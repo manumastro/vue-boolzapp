@@ -24,14 +24,22 @@
         <div id="notifications"></div>
         <div id="search"></div>
         <div id="contacts">
-          <div class="contact">
-            <img src="img/avatar_1.jpg" alt="Michele">
+
+        <!-- *********ciclo contatti******** -->
+          <div
+          v-for="(contatto, index) in dataBase" 
+          class="contact">
+            <img 
+            :src="receiveAvatar(index)" 
+            :alt="contatto.name">
             <div class="name-last_message">
-              <span>Michele</span>
+              <span>{{contatto.name}}</span>
               <span class="last-message">Ultimo messaggio inviato</span>
             </div>
             <span class="last-message-date">12:00</span>
           </div>
+        <!-- *********ciclo contatti******** -->
+
         </div>
       </div>
       <!-- parte sinistra -->
@@ -42,17 +50,21 @@
         <div class="user-top"></div>
         <div class="chat">
           <div class="container message-ctn">
-            <div class="message envoy">
-              <p class="message-text">Hai portato a spasso il cane?</p>
-              <p class="message-hour">16:46</p>
+            <div
+            v-for="messaggio in dataBase[0].messages" 
+            :class="messaggio.status"
+            class="message">
+              <p class="message-text">{{messaggio.message}}</p>
+              <p class="message-hour">{{messaggio.date}}</p>
             </div>
-            <div class="message envoy">
+            <!-- <div class="message envoy">
               <p class="message-text">Hai portato a spasso il cane?</p>
               <p class="message-hour">16:46</p>
             </div>
             <div class="message received">
               <p class="message-text">Tutto fatto!!</p>
-            </div>
+              <p class="message-hour">16:46</p>
+            </div> -->
           </div>
         </div>
         <div class="message-input"></div>

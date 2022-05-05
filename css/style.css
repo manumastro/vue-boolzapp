@@ -28,7 +28,7 @@ background-color: #dadbd4;
 #container-left{
   height: 100%;
   width: 35%;
-  overflow-y: scroll;
+  overflow-y:auto;
   background-color: white;
   
 /*   background-color: aqua;
@@ -140,7 +140,7 @@ p.message-hour{
   background-color:white; 
 }
 
-.message.envoy{
+.message.sent{
   align-self: flex-end;
   height: 20px;
   background-color: #d5f9ba;

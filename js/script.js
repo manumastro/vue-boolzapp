@@ -173,7 +173,13 @@ const app = new Vue({
   },
 
   created(){
-    console.log(this.dataBase);
-  }
+    console.log(this.dataBase[0].messages);
+  },
 
+  methods: {
+    receiveAvatar(index){
+        let avatarSource = `img/avatar${this.dataBase[index].avatar}.jpg`
+        return avatarSource;
+    }
+  }
 })
