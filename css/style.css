@@ -5,8 +5,7 @@
 }
 
 body{
-  font-family: 'Roboto', sans-serif;
-
+  font-family: 'Lato', sans-serif;
 }
 
 /* background-color: #009688;
@@ -16,13 +15,138 @@ background-color: #dadbd4;
 .wrapper{
   height: 100vh;
   padding: 20px;
-  background-color: aquamarine;
-
+  background-image: linear-gradient(#009688, #009688 15%, #d7dbd7 10%);
 }
 
 .container{
+  display: flex;
   width: 80%;
   margin: 0 auto;
   height: 100%;
+}
+
+#container-left{
+  height: 100%;
+  width: 35%;
+  overflow-y: scroll;
   background-color: white;
+  
+/*   background-color: aqua;
+ */}
+
+#container-right{
+  height: 100%;
+  width: 65%;
+/*   background-color:aquamarine;
+ */}
+
+.user-top{
+  height: 70px;
+  background-color: #eaeaea;
+} 
+
+.user-top.left{
+  border-right: 1px solid rgb(186, 183, 183);
+}
+
+#notifications{
+  height: 80px;
+  background-color: #8edafc;
+}
+
+#search{
+  height: 50px;
+  background-color: #fafafa;
+}
+
+#contacts{
+  width: 97%;
+}
+
+#contacts .contact{
+  position: relative;
+  display: flex;
+  height: 80px;
+  border-bottom: 1px solid rgb(240, 236, 236);
+  border-right: 1px solid rgb(242, 237, 237);
+}
+
+#contacts .contact img{
+  height: 60px;
+  margin: 10px 20px;
+  border-radius: 50%;
+}
+
+#contacts .contact .name-last_message{
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+#contacts .contact .name-last_message span.last-message{
+  margin-top: 5px;
+  color: grey;
+  font-size: 13px;
+}
+
+#contacts .contact span.last-message-date{
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px 10px;
+  color: grey;
+  font-size: 11px;
+}
+
+#container-right .chat{
+  height: calc(100% - 140px);
+  background-color: #dfd7cf;
+}
+
+
+.message-ctn{
+  display: flex;
+  flex-direction: column;
+  padding: 50px 0
+}
+
+.message{
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 25px 0;
+  margin: 5px 0;
+  min-width: 40%;
+  border-radius: 10px;
+}
+
+p.message-text{
+  font-size: 15px;
+  padding: 0 15px;
+}
+
+p.message-hour{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 5px 8px;
+  font-size: 10px;
+  color: rgb(168, 168, 168);
+}
+
+.message.received{
+  align-self: flex-start;
+  height: 20px;
+  background-color:white; 
+}
+
+.message.envoy{
+  align-self: flex-end;
+  height: 20px;
+  background-color: #d5f9ba;
+}
+
+#container-right .message-input{
+  height: 70px;
+  background-color: #f3eeea;
 }

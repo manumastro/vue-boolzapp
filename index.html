@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap" rel="stylesheet"> 
  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="css/style.css">
@@ -16,7 +16,51 @@
 
 
   <div id="app" class="wrapper">
-    <div class="container"></div>
+
+    <div class="container">
+      <!-- parte sinistra -->
+      <div id="container-left">
+        <div class="user-top left"></div>
+        <div id="notifications"></div>
+        <div id="search"></div>
+        <div id="contacts">
+          <div class="contact">
+            <img src="img/avatar_1.jpg" alt="Michele">
+            <div class="name-last_message">
+              <span>Michele</span>
+              <span class="last-message">Ultimo messaggio inviato</span>
+            </div>
+            <span class="last-message-date">12:00</span>
+          </div>
+        </div>
+      </div>
+      <!-- parte sinistra -->
+
+
+      <!-- parte destra -->
+      <div id="container-right">
+        <div class="user-top"></div>
+        <div class="chat">
+          <div class="container message-ctn">
+            <div class="message envoy">
+              <p class="message-text">Hai portato a spasso il cane?</p>
+              <p class="message-hour">16:46</p>
+            </div>
+            <div class="message envoy">
+              <p class="message-text">Hai portato a spasso il cane?</p>
+              <p class="message-hour">16:46</p>
+            </div>
+            <div class="message received">
+              <p class="message-text">Tutto fatto!!</p>
+            </div>
+          </div>
+        </div>
+        <div class="message-input"></div>
+      </div>
+      <!-- parte destra -->
+      
+    </div>
+
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
