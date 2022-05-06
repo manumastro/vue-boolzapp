@@ -175,11 +175,37 @@ const app = new Vue({
         avatar: '_io'
     },
     selectedUserIndex: 0,
+
+    messageToPush: '',
   },
   methods: {
-    seeIndex(index){
-        console.log(index);
+    
+    pushMessage(){
+        // console.log(this.dataBase[this.selectedUserIndex].messages[0].message);
+        const msgCopy = 
+        {
+            date: '10/01/2020 16:30:22',
+            message: this.messageToPush,
+            status: 'sent',
+        }
+        console.log(msgCopy.message);
+        this.dataBase[this.selectedUserIndex].messages.push(msgCopy);
+        this.messageToPush = '';
+        const clear = setInterval(() => {
+            if(this.messageToPush === ''){
+                console.log('vuoto');
+                const msgReply = 
+                {
+                    date: '10/01/2020 16:30:22',
+                    message: 'OK!!!',
+                    status: 'received',
+                }
+                this.dataBase[this.selectedUserIndex].messages.push(msgReply);
+                clearInterval(clear);
+            }
+        }, 1000);
     }
+
   },
 
   created(){

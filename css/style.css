@@ -131,6 +131,7 @@ background-color: #dadbd4;
   height: calc(100% - 140px);
   /* background-color: #dfd7cf; */
   background-image: url(/vue-boolzapp/img/mine.jpg);
+  overflow-y: scroll;
 }
 
 
@@ -166,9 +167,11 @@ p.message-hour{
 }
 
 .message.received{
+
   align-self: flex-start;
   height: 20px;
   background-color:white; 
+
 }
 
 .message.sent{
@@ -178,20 +181,20 @@ p.message-hour{
 }
 
 .message-input{
-  height: 70px;
-  background-color: #f3eeea;
-}
-
-.message-input{
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 37px;
+  height: 70px;
+  background-color: #f3eeea;
+  z-index: 999;
 }
+
 
 .message-input i{
   color: grey;
   font-size: 24px;
+  cursor: pointer;
 }
 
 .message-input input{
