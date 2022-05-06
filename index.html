@@ -18,9 +18,13 @@
   <div id="app" class="wrapper">
 
     <div class="container">
+
       <!-- parte sinistra -->
       <div id="container-left">
-        <div class="user-top left"></div>
+        <div class="user-top left">
+          <img :src="`img/avatar${user.avatar}.jpg`" :alt="user.name">
+          <span>{{user.name}}</span>
+        </div>
         <div id="notifications"></div>
         <div id="search"></div>
         <div id="contacts">
@@ -28,15 +32,16 @@
         <!-- *********ciclo contatti******** -->
           <div
           v-for="(contatto, index) in dataBase" 
+          @click="selectedUserIndex = index"
           class="contact">
             <img 
-            :src="receiveAvatar(index)" 
+            :src="`img/avatar${contatto.avatar}.jpg`" 
             :alt="contatto.name">
             <div class="name-last_message">
               <span>{{contatto.name}}</span>
               <span class="last-message">Ultimo messaggio inviato</span>
             </div>
-            <span class="last-message-date">12:00</span>
+            <span class="last-message-date">10:20</span>
           </div>
         <!-- *********ciclo contatti******** -->
 
@@ -47,11 +52,17 @@
 
       <!-- parte destra -->
       <div id="container-right">
-        <div class="user-top"></div>
+        <div class="user-top right">
+          <img :src="`img/avatar${dataBase[selectedUserIndex].avatar}.jpg`" :alt="user.name">
+          <div class="user_name-last_access">
+            <span>{{dataBase[selectedUserIndex].name}}</span>
+            <span>Ultimo accesso oggi alle 12:00</span>
+          </div>
+        </div>
         <div class="chat">
           <div class="container message-ctn">
             <div
-            v-for="messaggio in dataBase[0].messages" 
+            v-for="messaggio in dataBase[selectedUserIndex].messages" 
             :class="messaggio.status"
             class="message">
               <p class="message-text">{{messaggio.message}}</p>

@@ -159,7 +159,7 @@ const dB = [
               status: 'received'
           }
       ],
-  }
+  },
 ]
 
 
@@ -170,16 +170,22 @@ const app = new Vue({
 
   data: {
     dataBase: dB,
+    user: {
+        name: 'Manu',
+        avatar: '_io'
+    },
+    selectedUserIndex: 0,
+  },
+  methods: {
+    seeIndex(index){
+        console.log(index);
+    }
   },
 
   created(){
-    console.log(this.dataBase[0].messages);
+    // console.log(this.dataBase[0].messages);
+    // console.log(this.dataBase[0].name);
   },
 
-  methods: {
-    receiveAvatar(index){
-        let avatarSource = `img/avatar${this.dataBase[index].avatar}.jpg`
-        return avatarSource;
-    }
-  }
+  
 })

@@ -28,11 +28,8 @@ background-color: #dadbd4;
 #container-left{
   height: 100%;
   width: 35%;
-  overflow-y:auto;
   background-color: white;
-  
-/*   background-color: aqua;
- */}
+}
 
 #container-right{
   height: 100%;
@@ -46,7 +43,15 @@ background-color: #dadbd4;
 } 
 
 .user-top.left{
+  display: flex;
+  align-items: center;
   border-right: 1px solid rgb(186, 183, 183);
+}
+
+.user-top.left img{
+  height: 50px;
+  margin: 0 0 0 10px;
+  border-radius: 50%;
 }
 
 #notifications{
@@ -60,7 +65,9 @@ background-color: #dadbd4;
 }
 
 #contacts{
-  width: 97%;
+  height: calc(100% - 200px);
+  overflow-y: scroll;
+  width: 100%;
 }
 
 #contacts .contact{
@@ -85,7 +92,7 @@ background-color: #dadbd4;
 
 #contacts .contact .name-last_message span.last-message{
   margin-top: 5px;
-  color: grey;
+  color: rgb(174, 174, 174);
   font-size: 13px;
 }
 
@@ -98,9 +105,32 @@ background-color: #dadbd4;
   font-size: 11px;
 }
 
+#container-right .user-top.right{
+  display: flex;
+  align-items: center;
+  padding: 0 0 0 10px;
+}
+
+#container-right .user-top.right img{
+  height: 50px;
+  border-radius: 50%;
+  margin: 0 15px 0 0;
+}
+
+#container-right .user-top.right .user_name-last_access{
+  display: flex;
+  flex-direction: column;
+}
+#container-right .user-top.right .user_name-last_access span:last-of-type{
+  color: grey;
+  font-size: 13px;
+  margin: 2px 0;
+}
+
 #container-right .chat{
   height: calc(100% - 140px);
-  background-color: #dfd7cf;
+  /* background-color: #dfd7cf; */
+  background-image: url(/vue-boolzapp/img/mine.jpg);
 }
 
 
@@ -117,6 +147,7 @@ background-color: #dadbd4;
   padding: 25px 0;
   margin: 5px 0;
   min-width: 40%;
+  max-width: 60%;
   border-radius: 10px;
 }
 
