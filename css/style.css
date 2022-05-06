@@ -70,6 +70,10 @@ background-color: #dadbd4;
   width: 100%;
 }
 
+#contacts .contact.active{
+  background-color: #e9ebeb;
+}
+
 #contacts .contact{
   position: relative;
   display: flex;

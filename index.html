@@ -33,6 +33,7 @@
           <div
           v-for="(contatto, index) in dataBase" 
           @click="selectedUserIndex = index"
+          :class="{active: selectedUserIndex === index}"
           class="contact">
             <img 
             :src="`img/avatar${contatto.avatar}.jpg`" 
