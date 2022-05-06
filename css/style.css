@@ -177,7 +177,27 @@ p.message-hour{
   background-color: #d5f9ba;
 }
 
-#container-right .message-input{
+.message-input{
   height: 70px;
   background-color: #f3eeea;
+}
+
+.message-input{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 37px;
+}
+
+.message-input i{
+  color: grey;
+  font-size: 24px;
+}
+
+.message-input input{
+  width: 87%;
+  border: none;
+  padding: 15px 14px;
+  font-size: 15px;
+  border-radius: 5px;
 }
