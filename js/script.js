@@ -177,6 +177,25 @@ const app = new Vue({
     selectedUserIndex: 0,
 
     messageToPush: '',
+
+    searchUser: '',
+
+    clone:
+    [
+        {
+            name: '',
+            avatar: '',
+            visible: true,
+            messages: [
+                {
+                    date: '',
+                    message: '',
+                    status: ''
+                },
+            ],
+        },
+    ],
+
   },
   methods: {
     
@@ -189,28 +208,38 @@ const app = new Vue({
             status: 'sent',
         }
         console.log(msgCopy.message);
-        this.dataBase[this.selectedUserIndex].messages.push(msgCopy);
-        this.messageToPush = '';
-        const clear = setInterval(() => {
-            if(this.messageToPush === ''){
-                console.log('vuoto');
-                const msgReply = 
-                {
-                    date: '10/01/2020 16:30:22',
-                    message: 'OK!!!',
-                    status: 'received',
+
+        if(msgCopy.message.length > 0){
+            this.dataBase[this.selectedUserIndex].messages.push(msgCopy);
+            this.messageToPush = '';
+            const clear = setInterval(() => {
+                if(this.messageToPush === ''){
+                    console.log('vuoto');
+                    const msgReply = 
+                    {
+                        date: '10/01/2020 16:30:22',
+                        message: 'OK!!!',
+                        status: 'received',
+                    }
+                    this.dataBase[this.selectedUserIndex].messages.push(msgReply);
+                    clearInterval(clear);
                 }
-                this.dataBase[this.selectedUserIndex].messages.push(msgReply);
-                clearInterval(clear);
-            }
         }, 1000);
-    }
+        }
+    },
+
+    filteredContacts(){
+        return this.dataBase.filter(contatto => {
+            return contatto.name.toLowerCase().includes(this.searchUser.toLowerCase())
+        })
+    },
+
+
+    
 
   },
 
   created(){
-    // console.log(this.dataBase[0].messages);
-    // console.log(this.dataBase[0].name);
   },
 
   

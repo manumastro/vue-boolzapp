@@ -26,12 +26,19 @@
           <span>{{user.name}}</span>
         </div>
         <div id="notifications"></div>
-        <div id="search"></div>
+        <div id="search">
+          <label for="text">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </label>
+          <input
+          v-model="searchUser" 
+          type="text" name="search" placeholder="Cerca o inizia una nuova chat">
+        </div>
         <div id="contacts">
 
         <!-- *********ciclo contatti******** -->
           <div
-          v-for="(contatto, index) in dataBase" 
+          v-for="(contatto, index) in filteredContacts()" 
           @click="selectedUserIndex = index"
           :class="{active: selectedUserIndex === index}"
           class="contact">
@@ -44,6 +51,14 @@
             </div>
             <span class="last-message-date">10:20</span>
           </div>
+
+
+          
+
+          
+
+
+          
         <!-- *********ciclo contatti******** -->
 
         </div>
