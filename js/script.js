@@ -179,28 +179,13 @@ const app = new Vue({
     messageToPush: '',
 
     searchUser: '',
-
-    clone:
-    [
-        {
-            name: '',
-            avatar: '',
-            visible: true,
-            messages: [
-                {
-                    date: '',
-                    message: '',
-                    status: ''
-                },
-            ],
-        },
-    ],
+    
+    chevronToggle: false,
 
   },
   methods: {
     
     pushMessage(){
-        // console.log(this.dataBase[this.selectedUserIndex].messages[0].message);
         const msgCopy = 
         {
             date: '10/01/2020 16:30:22',
@@ -234,7 +219,9 @@ const app = new Vue({
         })
     },
 
-
+    chevronHoverFunction(){
+        this.chevronToggle = !this.chevronToggle;
+    }
     
 
   },

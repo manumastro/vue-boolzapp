@@ -22,10 +22,25 @@
       <!-- parte sinistra -->
       <div id="container-left">
         <div class="user-top left">
-          <img :src="`img/avatar${user.avatar}.jpg`" :alt="user.name">
-          <span>{{user.name}}</span>
+          <div class="user-name-img">
+            <img :src="`img/avatar${user.avatar}.jpg`" :alt="user.name">
+            <span>{{user.name}}</span>
+          </div>
+          <div class="user-icons">
+            <i class="fa-solid fa-circle-notch"></i>
+            <i class="fa-solid fa-message"></i>
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </div>
         </div>
-        <div id="notifications"></div>
+        <div id="notifications">
+          <div class="bell">
+            <i class="fa-solid fa-bell-slash"></i>
+          </div>
+          <div class="receive-notifications">
+            <span>Ricevi notifiche di nuovi messaggi</span>
+            <a href="#">Attiva notifiche desktop</a>
+          </div>
+        </div>
         <div id="search">
           <label for="text">
             <i class="fa-solid fa-magnifying-glass"></i>
@@ -51,14 +66,7 @@
             </div>
             <span class="last-message-date">10:20</span>
           </div>
-
-
-          
-
-          
-
-
-          
+  
         <!-- *********ciclo contatti******** -->
 
         </div>
@@ -69,20 +77,38 @@
       <!-- parte destra -->
       <div id="container-right">
         <div class="user-top right">
+          
           <img :src="`img/avatar${dataBase[selectedUserIndex].avatar}.jpg`" :alt="user.name">
           <div class="user_name-last_access">
             <span>{{dataBase[selectedUserIndex].name}}</span>
             <span>Ultimo accesso oggi alle 12:00</span>
           </div>
+
+          <div class="icons">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-solid fa-paperclip"></i>
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </div>
+
+
         </div>
         <div class="chat">
           <div class="container message-ctn">
             <div
             v-for="messaggio in dataBase[selectedUserIndex].messages" 
             :class="messaggio.status"
-            class="message">
+            class="message"
+            >
               <p class="message-text">{{messaggio.message}}</p>
               <p class="message-hour">{{messaggio.date}}</p>
+              
+              <i
+                class="fa-solid fa-chevron-down"
+                >
+              </i>
+
+              
+              
             </div>
             <!-- <div class="message envoy">
               <p class="message-text">Hai portato a spasso il cane?</p>
