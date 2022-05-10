@@ -218,9 +218,13 @@ const app = new Vue({
             return contatto.name.toLowerCase().includes(this.searchUser.toLowerCase())
         })
     },
+    
+    getLastMessage(contatto){
+        return contatto.messages[contatto.messages.length - 1].message;
+    },
 
-    chevronHoverFunction(){
-        this.chevronToggle = !this.chevronToggle;
+    getLastDate(contatto){
+        return contatto.messages[contatto.messages.length - 1].date;
     }
     
 

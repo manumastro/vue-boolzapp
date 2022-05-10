@@ -226,7 +226,6 @@ body{
 
 .message i{
   display: none;
-  cursor: pointer;
 }
 
 .message:hover i{
