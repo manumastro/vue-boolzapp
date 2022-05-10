@@ -73,9 +73,9 @@
             :alt="contatto.name">
             <div class="name-last_message">
               <span>{{contatto.name}}</span>
-              <span class="last-message">{{getLastMessage(contatto)}}</span>
+              <span class="last-message">{{getLastMessage(index)}}</span>
             </div>
-            <span class="last-message-date">{{getLastDate(contatto)}}</span>
+            <span class="last-message-date">{{getLastDate(index)}}</span>
           </div>
   
         <!-- *********ciclo contatti******** -->
@@ -106,7 +106,7 @@
         <div class="chat">
           <div class="container message-ctn">
             <div
-            v-for="messaggio in dataBase[selectedUserIndex].messages" 
+            v-for="(messaggio, index) in dataBase[selectedUserIndex].messages" 
             :class="messaggio.status"
             class="message"
             >
@@ -115,8 +115,28 @@
               
               <i
                 class="fa-solid fa-chevron-down"
+                @click="chevronClick(index)"
                 >
               </i>
+
+              <div
+              v-show="eliminateMessageToggle === true && selectedMessageIndex === index"
+              class="drop_down_menu"
+              >
+                  <option
+                    value="info">Info Messaggio</option>
+                  <option
+                    @click="selectedEliminate(selectedMessageIndex, selectedUserIndex, messaggio, index)"
+                    value="eliminate">Elimina Messaggio</option>
+
+                <!-- <select v-model="selectedDropDown" name="" id="">
+                  <option
+                    value="info">Info Messaggio</option>
+                  <option
+                    value="eliminate">Elimina Messaggio</option>
+                </select> -->
+
+              </div>
 
               
               

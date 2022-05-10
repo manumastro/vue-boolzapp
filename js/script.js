@@ -12,7 +12,7 @@ const dB = [
               message: 'Hai portato a spasso il cane?',
               status: 'sent'
           },
-          {
+          /* {
               date: '10/01/2020 15:50:00',
               message: 'Ricordati di stendere i panni',
               status: 'sent'
@@ -21,7 +21,7 @@ const dB = [
               date: '10/01/2020 16:15:22',
               message: 'Tutto fatto!',
               status: 'received'
-          }
+          } */
       ],
   },
   {
@@ -185,6 +185,10 @@ const app = new Vue({
     
     currenTime: dayjs().format('DD/MM/YYYY HH:mm:ss'),
 
+    eliminateMessageToggle: false,
+
+    selectedMessageIndex: '',
+
   },
   methods: {
     
@@ -202,7 +206,6 @@ const app = new Vue({
             this.messageToPush = '';
             const clear = setInterval(() => {
                 if(this.messageToPush === ''){
-                    console.log('vuoto');
                     const msgReply = 
                     {
                         date: this.currenTime,
@@ -222,12 +225,35 @@ const app = new Vue({
         })
     },
 
-    getLastMessage(contatto){
-        return contatto.messages[contatto.messages.length - 1].message;
+    getLastMessage(index){
+
+        if(this.dataBase[index].messages.length - 1 < 0){
+            return null;
+        }else{
+            return this.dataBase[index].messages[this.dataBase[index].messages.length - 1].message;
+        }
     },
 
-    getLastDate(contatto){
-        return contatto.messages[contatto.messages.length - 1].date;
+    getLastDate(index){
+        if(this.dataBase[index].messages.length - 1 < 0){
+            return null;
+        }else{
+            return this.dataBase[index].messages[this.dataBase[index].messages.length - 1].date;
+        }
+    },
+
+    chevronClick(index){
+        this.eliminateMessageToggle = !this.eliminateMessageToggle;
+        this.selectedMessageIndex = index;
+    },
+
+    selectedEliminate(selectedMessageIndex, selectedUserIndex, messaggio, index){
+
+        console.log('IL MESSAGGIO DA ELIMINARE E:      ',
+        this.dataBase[selectedUserIndex].messages[selectedMessageIndex].message
+        );
+
+        this.dataBase[selectedUserIndex].messages.splice(index, 1);
     }
     
 
