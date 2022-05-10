@@ -1,3 +1,6 @@
+dayjs.extend(window.dayjs_plugin_customParseFormat);
+dayjs.extend(window.dayjs_plugin_relativeTime);
+
 const dB = [
   {
       name: 'Michele',
@@ -180,7 +183,7 @@ const app = new Vue({
 
     searchUser: '',
     
-    chevronToggle: false,
+    currenTime: dayjs().format('DD/MM/YYYY HH:mm:ss'),
 
   },
   methods: {
@@ -188,7 +191,7 @@ const app = new Vue({
     pushMessage(){
         const msgCopy = 
         {
-            date: '10/01/2020 16:30:22',
+            date: this.currenTime,
             message: this.messageToPush,
             status: 'sent',
         }
@@ -202,7 +205,7 @@ const app = new Vue({
                     console.log('vuoto');
                     const msgReply = 
                     {
-                        date: '10/01/2020 16:30:22',
+                        date: this.currenTime,
                         message: 'OK!!!',
                         status: 'received',
                     }
@@ -218,7 +221,7 @@ const app = new Vue({
             return contatto.name.toLowerCase().includes(this.searchUser.toLowerCase())
         })
     },
-    
+
     getLastMessage(contatto){
         return contatto.messages[contatto.messages.length - 1].message;
     },
@@ -229,9 +232,5 @@ const app = new Vue({
     
 
   },
-
-  created(){
-  },
-
   
 })
