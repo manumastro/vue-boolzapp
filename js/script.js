@@ -12,7 +12,7 @@ const dB = [
               message: 'Hai portato a spasso il cane?',
               status: 'sent'
           },
-          /* {
+          {
               date: '10/01/2020 15:50:00',
               message: 'Ricordati di stendere i panni',
               status: 'sent'
@@ -21,7 +21,7 @@ const dB = [
               date: '10/01/2020 16:15:22',
               message: 'Tutto fatto!',
               status: 'received'
-          } */
+          }
       ],
   },
   {
@@ -225,20 +225,21 @@ const app = new Vue({
         })
     },
 
-    getLastMessage(index){
+    getLastMessage(contatto){
 
-        if(this.dataBase[index].messages.length - 1 < 0){
+        if(contatto.messages.length - 1 < 0){
             return null;
         }else{
-            return this.dataBase[index].messages[this.dataBase[index].messages.length - 1].message;
+            return contatto.messages[contatto.messages.length - 1].message;
         }
     },
 
-    getLastDate(index){
-        if(this.dataBase[index].messages.length - 1 < 0){
+    getLastDate(contatto){
+
+        if(contatto.messages.length - 1 < 0){
             return null;
         }else{
-            return this.dataBase[index].messages[this.dataBase[index].messages.length - 1].date;
+            return contatto.messages[contatto.messages.length - 1].date;
         }
     },
 
