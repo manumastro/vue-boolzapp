@@ -58,13 +58,15 @@
           </label>
           <input
           v-model="searchUser" 
+          @keyup="search()"
           type="text" name="search" placeholder="Cerca o inizia una nuova chat">
         </div>
         <div id="contacts">
 
         <!-- *********ciclo contatti******** -->
           <div
-          v-for="(contatto, index) in filteredContacts()" 
+          v-for="(contatto, index) in dataBase" 
+          v-if="contatto.visible"
           @click="selectedUserIndex = index"
           :class="{active: selectedUserIndex === index}"
           class="contact">

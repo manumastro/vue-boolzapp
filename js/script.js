@@ -172,6 +172,7 @@ const app = new Vue({
   el: '#app',
 
   data: {
+      
     dataBase: dB,
     user: {
         name: 'Manu',
@@ -219,9 +220,15 @@ const app = new Vue({
         }
     },
 
-    filteredContacts(){
+    /* filteredContacts(){
         return this.dataBase.filter(contatto => {
             return contatto.name.toLowerCase().includes(this.searchUser.toLowerCase())
+        })
+    }, */
+
+    search(){
+        this.dataBase.forEach(contact => {
+            contact.visible = contact.name.toUpperCase().includes(this.searchUser.toUpperCase());
         })
     },
 
